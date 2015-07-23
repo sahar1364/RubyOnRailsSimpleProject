@@ -1,0 +1,18 @@
+<h1>Categories</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.Name %></td>
+      <td><%= category.Description %></td>
+    </tr>
+  <% end %>
+</table>
+<form id="indexForm" style="text-align: right">
+  <button type="submit" form="indexForm" formaction="/categories/new" style="font-size: 90%; padding: 0.5em">New Category</button>
+</form>
+<%= link_to 'Home', '/', {:id => 'homeLink'} %>
+

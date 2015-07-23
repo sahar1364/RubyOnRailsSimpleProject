@@ -1,0 +1,20 @@
+<h1>New Category</h1>
+<%= form_for :category, url: categories_path, :html => {class: 'formStyle'} do |f| %> 
+  <div class="table">
+    <div class="row">
+      <%= f.label :'Name:', {:class => 'cell rightAlign'} %>
+      <%= f.text_field :Name, {:class => 'cell leftAlign'} %>
+    </div>
+    <div class="row">
+      <%= f.label :'Priority:', {:class => 'cell rightAlign'} %>
+      <%= f.text_field :Priority, {:class => 'cell leftAlign'} %>
+    </div>
+    <div class="row">
+      <%= f.label :'Description:', {:class => 'cell rightAlign'} %>
+      <%= f.text_area :Description, {:class => 'cell leftAlign'} %>
+    </div>
+    <div class="row">
+      <div class="cell"></div>
+      <%= f.submit %>
+    </div>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Category Saved</h1>
+<form id="indexForm" class="formStyle">
+  <div class="table">
+    <div class="row">
+      <label class="cell rightAlign">Name:</label>
+      <div class="cell leftAlign" style="padding-top: 5px"><%= @category.Name %></div>
+    </div>
+    <div class="row">
+      <label class="cell rightAlign">Description:</label>
+      <div class="cell leftAlign" style="padding-top: 5px"><%= @category.Description %></div>
+    </div>
+  </div>
+  <button type="submit" form="indexForm" formaction="/categories" style="font-size: 90%; padding: 0.5em">Ok</button>
+</form>

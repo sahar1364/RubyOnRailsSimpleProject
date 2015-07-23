@@ -1,0 +1,15 @@
+<h1>Product Saved</h1>
+<form id="indexForm" class="formStyle">
+  <div class="table">
+    <div class="row">
+      <label class="cell rightAlign">Name:</label>
+      <div class="cell leftAlign" style="padding-top: 5px"><%= @product.Name %></div>
+    </div>
+    <div class="row">
+      <label class="cell rightAlign">Description:</label>
+      <div class="cell leftAlign" style="padding-top: 5px"><%= @product.Description %></div>
+    </div> 
+  </div>
+  <button type="submit" form="indexForm" formaction="/products" style="font-size: 90%; padding: 0.5em">Ok</button>
+</form>
+

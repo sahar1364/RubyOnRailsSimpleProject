@@ -1,0 +1,24 @@
+<h1>Edit Product</h1>
+<%= form_for :product, url: product_path(@product), method: :patch, :html => {class: 'formStyle'} do |f| %>
+  
+  <div class="table">
+    <div class="row">
+      <%= f.label :'Name:', {:class => 'cell rightAlign'} %>
+      <%= f.text_field :Name, {:class => 'cell leftAlign'} %>
+    </div>
+    <div class="row">
+      <%= f.label :'Category:', {:class => 'cell rightAlign'} %>
+      <%= f.collection_select :category_id, Category.all, :id, :Name, {:class => 'cell leftAlign'} %>
+    </div>
+    <div class="row">
+      <%= f.label :'Description:', {:class => 'cell rightAlign'} %>
+      <%= f.text_area :Description, {:class => 'cell leftAlign'} %>
+    </div>
+    <div class="row">
+      <div class="cell rightAlign"></div>
+      <%= f.submit 'Save Product', {:class => 'leftAlign'} %>
+    </div>
+  </div>
+<% end %>
+ 
+<%= link_to 'Home', '/', {:id => 'homeLink'} %>

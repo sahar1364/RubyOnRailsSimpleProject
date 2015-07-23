@@ -1,0 +1,21 @@
+<h1>New Product</h1>
+<%= form_for :product, url: products_path, :html => {class: 'formStyle'} do |f| %>  
+  <div class="table">
+    <div class="row">
+      <%= f.label :'Name:', {:class => 'cell rightAlign'} %>
+      <%= f.text_field :Name, {:class => 'cell leftAlign'} %>
+    </div>
+    <div class="row">
+      <%= f.label :category_id, {:class => 'cell rightAlign'} %>
+      <%= f.collection_select :category_id, Category.all, :id, :Name, {:class => 'cell rightAlign'} %>
+    </div>
+    <div class="row">
+      <%= f.label :'Description:', {:class => 'cell rightAlign'} %>
+      <%= f.text_area :Description, {:class => 'cell leftAlign'} %>
+    </div>
+    <div class="row">
+      <div class="cell"></div>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

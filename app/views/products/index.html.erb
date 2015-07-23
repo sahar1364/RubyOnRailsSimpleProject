@@ -1,0 +1,33 @@
+<h1>Products</h1>
+<%= form_tag products_path, :method => 'get', :class => 'formStyle' do |f| %>
+  <div id="searchContainer">
+    <%= text_field_tag :search, params[:search], {:placeholder => 'Product Name'} %>
+    <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :Name), {:style => 'display: inline'} %>
+    <%= submit_tag "Search", :name => nil %>
+  </div>
+<% if not params[:category_id].blank? %>
+  <div id="productCount">Products in stock with <%= Category.find(params[:category_id]).Name%> category: <%= @products.length %></div>
+<% end %>
+<% end %>
+<% if not params[:category_id].blank? and @products.length > 0 %>
+  <table>
+    <tr>
+      <th style="width: 35%">Name</th>
+      <th style="width: 35%">Description</th>
+      <th style="width: 15%"></th>
+      <th style="width: 15%"></th>
+    </tr>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.Name %></td>
+        <td><%= product.Description %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Remove', product_path(product),method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<form id="indexForm" style="text-align: right">
+  <button type="submit" form="indexForm" formaction="/products/new" style="font-size: 90%; padding: 0.5em">New Product</button>
+</form>
+<%= link_to 'Home', '/', {:id => 'homeLink'} %>
